@@ -1,0 +1,21 @@
+
+from jira import JIRA
+
+
+jira_options={'server': 'https://jira.technicolor.com'}
+print(1)
+jira = JIRA(options=jira_options,basic_auth=('wipro_nagarjunm', 'X6BH9bJgHxLY'))
+print(1)
+
+issue = jira.issue('NG-173000')
+print(1)
+
+print(issue.fields.prototype.key)
+print(1)
+
+print(issue.fields.issuetype.name)
+print(1)
+
+print(issue.fields.reporter.displayName)
+
+ 

@@ -1,0 +1,49 @@
+import time
+import os
+import webbrowser 
+import speech_recognition as sr
+import webbrowser
+import pyttsx
+
+
+
+
+def openoutlook():
+  url ="https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000002-0000-0ff1-ce00-000000000000&redirect_uri=https%3a%2f%2foutlook.office365.com%2fowa%2f&resource=00000002-0000-0ff1-ce00-000000000000&response_mode=form_post&response_type=code+id_token&scope=openid&msafed=0&client-request-id=889001fc-b1bd-4122-9c1e-17abfcbd975c&protectedtoken=true&nonce=636666446077733254.4647171e-d100-4870-88ff-d29990428444&state=DYtBDoAwCASpxudgoV2BPsek9urR78skM7cpRLSnW1okQ27dEsDE3XtvF04YXF0fnirCCBeOWItnG2MIWgAo-R71_e76Aw"
+  webbrowser.open_new_tab(url)
+  acknowlge("opened outlook")
+
+def openyoutube():
+  url ="https://www.youtube.com"
+  webbrowser.open_new_tab(url)
+  acknowlge("opened youtube")
+
+def dhanu_main_thread(keyword):
+    call_fun_input(keyword)
+
+
+def call_fun_input(keyword):
+    # Get the function from switcher 
+    func = switcher.get(keyword, "Invalid")
+    # Execute the function
+    if (func != "Invalid"):
+      return func()
+
+def open_mywipro():
+    url = "https://mywipro.wipro.com"
+    webbrowser.open_new_tab(url)
+    acknowlge("opened my wipro")
+
+
+def acknowlge(output):
+  engine = pyttsx.init()
+  engine.say(output)
+  engine.runAndWait()
+
+
+switcher = {
+        "open Outlook" : openoutlook,
+        "open YouTube" : openyoutube,
+        "mywipro" : open_mywipro
+    }
+
